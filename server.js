@@ -3,7 +3,7 @@ const morgan = require('morgan');
 
 const app = express();
 
-// Middleware Morgan, login request library
+// Middleware Morgan, logging request library
 app.use(morgan('dev'));
 
 app.get('/', function(req, res) {
@@ -27,4 +27,3 @@ app.listen(3000, function(error) {
     if(error) throw error;
     console.log('Server is Running on 3000');
 });
-
