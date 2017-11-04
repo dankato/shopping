@@ -17,6 +17,9 @@ mongoose.connect('mongodb://dev:devdev@ds147265.mlab.com:47265/shopping', functi
     }
 });
 
+// serving static files so express knows to use it
+app.use(express.static(__dirname + '/public'));
+
 // Middleware Morgan, logging request library
 app.use(morgan('dev'));
 
