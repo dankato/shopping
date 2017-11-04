@@ -1,0 +1,23 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Jumbotron Template for Bootstrap</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+  </head>
+
+  <body>
+
+    <% include ./parts/navbar %>
+    <main role="main">
+
+      <div class="container">
+          <%- body -%>
+
+      </div> <!-- /container -->
+
+    </main>
+    <% include ./parts/footer %>
+  </body>
+</html>
