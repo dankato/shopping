@@ -1,6 +1,10 @@
 const express = require('express');
+const morgan = require('morgan');
 
 const app = express();
+
+// Middleware Morgan, login request library
+app.use(morgan('dev'));
 
 app.get('/', function(req, res) {
     const name = 'daniel';
