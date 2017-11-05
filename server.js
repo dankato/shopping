@@ -7,11 +7,12 @@ const ejsmate = require('ejs-mate');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const flash = require('express-flash');
+const secret = require('./config/secret');
 const User = require('./models/user');
 
 const app = express();
 
-mongoose.connect('mongodb://dev:devdev@ds147265.mlab.com:47265/shopping', function(error) {
+mongoose.connect(secret.database, function(error) {
     if(error) {
         console.log(error);
     } else {
@@ -34,7 +35,7 @@ app.use(cookieParser());
 app.use(session({
     resave: true,
     saveUninitialized: true,
-    secret: 'secret!',
+    secret: secret.secretKey
 }));
 app.use(flash());
 
@@ -48,7 +49,7 @@ const userRoutes = require('./routes/user')
 app.use(mainRoutes);
 app.use(userRoutes);
 
-app.listen(3000, function(error) {
+app.listen(secret.port, function(error) {
     if(error) throw error;
-    console.log('Server is Running on 3000');
+    console.log('Server is Running on ' + secret.port);
 });
